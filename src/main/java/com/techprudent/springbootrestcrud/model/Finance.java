@@ -2,6 +2,7 @@ package com.techprudent.springbootrestcrud.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -18,40 +19,108 @@ public class Finance {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_finance",unique = true,nullable = false)
-	@Getter @Setter
 	private long id;
 
 	@ManyToOne
 	@JoinColumn(name="type")
-	@Getter @Setter
 	private Transacts type;
 
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "Data")
-	@Getter @Setter
 	private Date dateFinance;
 
 	@Column(name = "Valor",length = 100)
-	@Getter @Setter
 	private int value;
 
 	@Column(name = "CPF",length = 100)
-	@Getter @Setter
 	private String cpf;
 
 	@Column(name = "Cartao",length = 100)
-	@Getter @Setter
 	private String card;
 
 	@Column(name="Hora")
-	@Getter @Setter
 	private String hour;
 
 	@Column(name="DonoLoja")
-	@Getter @Setter
 	private String ownerStore;
 
 	@Column(name="NomeLoja")
-	@Getter @Setter
 	private String nameStore;
 
+	public static long getSerialVersionUID() {
+		return serialVersionUID;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Transacts getType() {
+		return type;
+	}
+
+	public void setType(Transacts type) {
+		this.type = type;
+	}
+
+	public Date getDateFinance() {
+		return dateFinance;
+	}
+
+	public void setDateFinance(Date dateFinance) {
+		this.dateFinance = dateFinance;
+	}
+
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getCard() {
+		return card;
+	}
+
+	public void setCard(String card) {
+		this.card = card;
+	}
+
+	public String getHour() {
+		return hour;
+	}
+
+	public void setHour(String hour) {
+		this.hour = hour;
+	}
+
+	public String getOwnerStore() {
+		return ownerStore;
+	}
+
+	public void setOwnerStore(String ownerStore) {
+		this.ownerStore = ownerStore;
+	}
+
+	public String getNameStore() {
+		return nameStore;
+	}
+
+	public void setNameStore(String nameStore) {
+		this.nameStore = nameStore;
+	}
 }

@@ -10,7 +10,7 @@ public interface FinanceService {
 
 	public Finance update(Finance finance);
 
-	public Finance create(Finance finance) ;
+	public Finance create(List<Finance> listFinance) ;
 
 	public Finance findById(long id) ;
 

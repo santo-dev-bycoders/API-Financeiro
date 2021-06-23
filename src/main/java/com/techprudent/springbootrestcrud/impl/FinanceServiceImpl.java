@@ -29,8 +29,22 @@ public class FinanceServiceImpl implements FinanceService {
 	}
 
 	@Override
-	public Finance create(Finance finance) {
-		return financeRepository.save(finance);
+	public Finance create(List<Finance> listFinance) {
+
+		for (int i = 0; i < listFinance.size(); i++){
+			Finance finance=new Finance();
+			finance.setType(listFinance.get(i).getType());
+			finance.setDateFinance(listFinance.get(i).getDateFinance());
+			finance.setCard(listFinance.get(i).getCard());
+			finance.setCpf(listFinance.get(i).getCpf());
+			finance.setValue(listFinance.get(i).getValue());
+			finance.setHour(listFinance.get(i).getHour());
+			finance.setNameStore(listFinance.get(i).getNameStore());
+			finance.setOwnerStore(listFinance.get(i).getOwnerStore());
+			financeRepository.save(finance);
+		}
+
+		return null;
 	}
 
 	@Override

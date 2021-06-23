@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/finance")
 public class FinanceController {
@@ -20,8 +22,8 @@ public class FinanceController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public @ResponseBody ResponseEntity<?> save(@RequestBody Finance finance) {
-        return new ResponseEntity<>(financeService.create(finance), HttpStatus.OK);
+    public @ResponseBody ResponseEntity<?> save(@RequestBody List<Finance> listFinance) {
+        return new ResponseEntity<>(financeService.create(listFinance), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
