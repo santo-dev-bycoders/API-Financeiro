@@ -39,5 +39,11 @@ public class FinanceController {
     @RequestMapping(value ="/delete/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable long id) {
         financeService.delete(id);
+
+    }
+
+    @RequestMapping(value = "/saveFinance", method = RequestMethod.POST)
+    public @ResponseBody ResponseEntity<?> save(@RequestBody Finance finance) {
+        return new ResponseEntity<>(financeService.saveFinance(finance), HttpStatus.OK);
     }
 }

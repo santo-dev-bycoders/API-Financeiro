@@ -16,6 +16,8 @@ public interface FinanceService {
 
 	public int countValue();
 
+	public Finance saveFinance(Finance finance);
+
 
 
 }

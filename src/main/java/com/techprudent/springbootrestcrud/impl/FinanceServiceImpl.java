@@ -58,6 +58,11 @@ public class FinanceServiceImpl implements FinanceService {
 		return financeRepository.countValue();
 	}
 
+	@Override
+	public Finance saveFinance(Finance finance) {
+		return financeRepository.save(finance);
+	}
+
 
 
 
