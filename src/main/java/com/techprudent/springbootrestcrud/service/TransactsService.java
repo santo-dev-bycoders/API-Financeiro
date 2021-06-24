@@ -8,8 +8,6 @@ public interface TransactsService {
 
 	public void delete(long id) ;
 
-	public Transacts update(Transacts transacts);
-
 	public Transacts create(Transacts transacts) ;
 
 	public Transacts findById(long id) ;

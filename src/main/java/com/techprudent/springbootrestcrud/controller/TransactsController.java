@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/transacts")
+@RequestMapping("/transact")
 public class TransactsController {
 
     @Autowired
@@ -22,11 +22,6 @@ public class TransactsController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public @ResponseBody ResponseEntity<?> save(@RequestBody Transacts transacts) {
         return new ResponseEntity<>(transactervice.create(transacts), HttpStatus.OK);
-    }
-
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public @ResponseBody ResponseEntity<?> update(@RequestBody Transacts transacts) {
-        return new ResponseEntity<>(transactervice.update(transacts), HttpStatus.OK);
     }
 
     @RequestMapping(value ="/findAll", method = RequestMethod.GET)

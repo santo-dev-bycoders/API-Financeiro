@@ -8,7 +8,7 @@ spring:
     username: root
     password:
   jpa:
-    hibernate.ddl-auto: create
+    hibernate.ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL57Dialect
     generate-ddl: true
     show-sql: true

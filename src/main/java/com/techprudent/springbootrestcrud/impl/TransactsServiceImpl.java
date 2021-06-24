@@ -23,11 +23,6 @@ public class TransactsServiceImpl implements TransactsService {
 	}
 
 	@Override
-	public Transacts update(Transacts transacts) {
-		return transactsRepository.save(transacts);
-	}
-
-	@Override
 	public Transacts create(Transacts transacts) {
 		return transactsRepository.save(transacts);
 	}
