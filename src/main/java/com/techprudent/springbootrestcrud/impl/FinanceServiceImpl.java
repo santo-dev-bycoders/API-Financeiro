@@ -3,6 +3,7 @@ package com.techprudent.springbootrestcrud.impl;
 import com.techprudent.springbootrestcrud.model.Finance;
 import com.techprudent.springbootrestcrud.model.Transacts;
 import com.techprudent.springbootrestcrud.repository.FinanceRepository;
+import com.techprudent.springbootrestcrud.repository.TransactsRepository;
 import com.techprudent.springbootrestcrud.service.FinanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,9 @@ public class FinanceServiceImpl implements FinanceService {
 
 	@Autowired
 	private FinanceRepository financeRepository;
+
+	@Autowired
+	private TransactsRepository transactsRepository;
 	
 	@Override
 	public void delete(long id) {
@@ -24,9 +28,33 @@ public class FinanceServiceImpl implements FinanceService {
 		financeRepository.save(finance);
 	}
 
+	public void createTransatInitial(){
+		List<Transacts> list=new ArrayList<>();
+		list.add(new Transacts(1,"Débito","Entrada","+"));
+		list.add(new Transacts(2,"Boleto","Saída","-"));
+		list.add(new Transacts(3,"Financiamento","Saída","-"));
+		list.add(new Transacts(4,"Crédito","Entrada","+"));
+		list.add(new Transacts(5,"Recebimento Empréstimo","Entrada","+"));
+		list.add(new Transacts(6,"Vendas","Entrada","+"));
+		list.add(new Transacts(7,"Recebimento TED","Entrada","+"));
+		list.add(new Transacts(8,"Recebimento DOC","Entrada","+"));
+		list.add(new Transacts(9,"Aluguel","Saída","-"));
+
+		for (int i=0;i<9;i++){
+			Transacts transacts=new Transacts();
+			transacts.setId(list.get(i).getId());
+			transacts.setDescription(list.get(i).getDescription());
+			transacts.setNatureze(list.get(i).getNatureze());
+			transacts.setSignal(list.get(i).getSignal());
+			transactsRepository.save(transacts);
+		}
+	}
+
 
 	@Override
 	public Finance create(List<Finance> listFinance) {
+
+		createTransatInitial();
 
 		for (int i = 0; i < listFinance.size(); i++){
 			Finance finance=new Finance();

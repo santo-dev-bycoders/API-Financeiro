@@ -33,6 +33,18 @@ public class Transacts {
 		return serialVersionUID;
 	}
 
+	public Transacts() {
+	}
+
+	public Transacts(long id,String description,String natureze,String signal) {
+		this.setId(id);
+		this.setDescription(description);
+		this.setNatureze(natureze);
+		this.setSignal(signal);
+	}
+
+
+
 	public long getId() {
 		return id;
 	}
