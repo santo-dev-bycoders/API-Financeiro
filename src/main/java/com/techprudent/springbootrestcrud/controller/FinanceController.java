@@ -26,14 +26,14 @@ public class FinanceController {
         return new ResponseEntity<>(financeService.create(listFinance), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public @ResponseBody ResponseEntity<?> update(@RequestBody Finance finance) {
-        return new ResponseEntity<>(financeService.update(finance), HttpStatus.OK);
-    }
-
     @RequestMapping(value ="/findAll", method = RequestMethod.GET)
     public @ResponseBody ResponseEntity<?> findAll() {
         return new ResponseEntity<>(financeService.findAll(), HttpStatus.OK);
+    }
+
+    @RequestMapping(value ="/countValue", method = RequestMethod.GET)
+    public int countValue() {
+        return financeService.countValue();
     }
 
     @RequestMapping(value ="/delete/{id}", method = RequestMethod.DELETE)

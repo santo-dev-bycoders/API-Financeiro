@@ -8,13 +8,13 @@ public interface FinanceService {
 
 	public void delete(long id) ;
 
-	public Finance update(Finance finance);
-
 	public Finance create(List<Finance> listFinance) ;
 
 	public Finance findById(long id) ;
 
 	public List<Finance> findAll();
+
+	public int countValue();
 
 
 
