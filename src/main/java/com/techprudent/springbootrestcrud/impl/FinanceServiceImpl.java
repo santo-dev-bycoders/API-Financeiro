@@ -1,6 +1,7 @@
 package com.techprudent.springbootrestcrud.impl;
 
 import com.techprudent.springbootrestcrud.model.Finance;
+import com.techprudent.springbootrestcrud.model.Transacts;
 import com.techprudent.springbootrestcrud.repository.FinanceRepository;
 import com.techprudent.springbootrestcrud.service.FinanceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,11 @@ public class FinanceServiceImpl implements FinanceService {
 
 		for (int i = 0; i < listFinance.size(); i++){
 			Finance finance=new Finance();
-			finance.setType(listFinance.get(i).getType());
+			Integer idType=Integer.parseInt(listFinance.get(i).getIdType());
+			Transacts transacts=new Transacts();
+
+			transacts.setId(idType);
+			finance.setType(transacts);
 			finance.setDateFinance(listFinance.get(i).getDateFinance());
 			finance.setCard(listFinance.get(i).getCard());
 			finance.setCpf(listFinance.get(i).getCpf());

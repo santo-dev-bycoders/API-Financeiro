@@ -18,23 +18,50 @@ public class Transacts {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "type", unique = true, nullable = false)
-	@Getter
-	@Setter
 	private long id;
 
 	@Column(name = "Description")
-	@Getter
-	@Setter
 	private String description;
 
 	@Column(name = "Natureza", length = 100)
-	@Getter
-	@Setter
 	private String natureze;
 
 	@Column(name = "Sinal", length = 100)
-	@Getter
-	@Setter
 	private String signal;
 
+	public static long getSerialVersionUID() {
+		return serialVersionUID;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getNatureze() {
+		return natureze;
+	}
+
+	public void setNatureze(String natureze) {
+		this.natureze = natureze;
+	}
+
+	public String getSignal() {
+		return signal;
+	}
+
+	public void setSignal(String signal) {
+		this.signal = signal;
+	}
 }

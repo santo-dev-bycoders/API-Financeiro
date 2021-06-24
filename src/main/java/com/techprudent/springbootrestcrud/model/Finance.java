@@ -30,13 +30,13 @@ public class Finance {
 	@Column(name = "Data")
 	private Date dateFinance;
 
-	@Column(name = "Valor",length = 100)
+	@Column(name = "Valor")
 	private int value;
 
-	@Column(name = "CPF",length = 100)
+	@Column(name = "CPF")
 	private String cpf;
 
-	@Column(name = "Cartao",length = 100)
+	@Column(name = "Cartao")
 	private String card;
 
 	@Column(name="Hora")
@@ -47,6 +47,8 @@ public class Finance {
 
 	@Column(name="NomeLoja")
 	private String nameStore;
+
+	private String idType;
 
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
@@ -122,5 +124,13 @@ public class Finance {
 
 	public void setNameStore(String nameStore) {
 		this.nameStore = nameStore;
+	}
+
+	public String getIdType() {
+		return idType;
+	}
+
+	public void setIdType(String idType) {
+		this.idType = idType;
 	}
 }
